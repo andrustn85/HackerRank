@@ -102,18 +102,14 @@ function compareTriplets(a, b) {
     if(aliceBase[1].aliceValue > bobBase[1].bobValue){ const alicePush1 = resultAlice.push(1) }
     if(aliceBase[2].aliceValue > bobBase[2].bobValue){ const alicePush2 = resultAlice.push(1) }
 
-    if(aliceBase[0].aliceValue === bobBase[0].bobValue) { const alicePush0 = resultAlice.push(0) }
-    if(aliceBase[1].aliceValue === bobBase[1].bobValue){ const alicePush1 = resultAlice.push(0) }
-    if(aliceBase[2].aliceValue === bobBase[2].bobValue){ const alicePush2 = resultAlice.push(0) }
-
     if(aliceBase[0].aliceValue < bobBase[0].bobValue){ const bobPush0 = resultBob.push(1) }
     if(aliceBase[1].aliceValue < bobBase[1].bobValue){ const bobPush1 = resultBob.push(1) }
     if(aliceBase[2].aliceValue < bobBase[2].bobValue){ const bobPush2 = resultBob.push(1) }
 
-    if(aliceBase[0].aliceValue === bobBase[0].bobValue){ const bobPush0 = resultBob.push(0) }
-    if(aliceBase[0].aliceValue === bobBase[0].bobValue){ const bobPush1 = resultBob.push(0) }
-    if(aliceBase[2].aliceValue === bobBase[2].bobValue){ const bobPush2 = resultBob.push(0) }
+    if(aliceBase.aliceValue === bobBase.bobValue) { const alicePush = resultAlice.push(0) }
+    if(aliceBase.aliceValue === bobBase.bobValue){ const bobPush = resultBob.push(0) }
 
+    else { resultAlice.push(0) && resultBob.push(0) }
 
     const reduceAlice = resultAlice.reduce((total, num) => { return total + num })
     const reduceBob = resultBob.reduce((total, num) => { return total + num })
