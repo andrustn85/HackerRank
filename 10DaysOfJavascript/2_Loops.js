@@ -78,7 +78,7 @@ function readLine() {
 function vowelsAndConsonants(s) {
 
 const split = s.split('')
-const vowels = ['a', 'e', 'i', 'o', 'u']
+const vowels = ['a', 'e', 'i', 'o', 'u','y', 'Y', 'A', 'E', 'I', 'O', 'U']
 const vowelsFound = []
     for(let letter = 0; letter < split.length; letter++){
         if(vowels.indexOf(split[letter]) != -1){
@@ -87,7 +87,7 @@ const vowelsFound = []
     }
 
 // return all the consonnes in the same order of the input
-const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k','l', 'm', 'n','p', 'q','r','s','t','v','x','z']
+const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k','l', 'm', 'n','p', 'q','r','s','t','v', 'w', 'x','z', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z']
 const consonantsFound = []
     for(let letter = 0; letter < split.length; letter++){
         if(consonants.indexOf(split[letter]) != -1){
