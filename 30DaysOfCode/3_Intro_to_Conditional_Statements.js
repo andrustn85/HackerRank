@@ -39,3 +39,69 @@
 //
 // Sample Case 1:
 //  and  is even, so it isn't weird. Thus, we print Not Weird.
+
+
+// SOLUTION
+
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+function conditionalWeirdness(N) {
+
+    if(N % 2 !== 0){console.log('Weird')}
+    else if((N % 2 === 0) && (N > 20)){console.log('Not Weird')}
+    else if((N % 2 === 0) && (2 <= N <= 5)){console.log('Not Weird')}
+    else if((N % 2 === 0) && (6 <= N <= 20)){console.log('Weird')}
+    else {console.log(N)}
+
+    // if(((N % 2 === 0) || (N % 2 !== 0)) && (2 <= N <= 5)){console.log('Not Weird')}
+    // else if((N % 2 === 0) && (6 <= N <= 20)){console.log('Weird')}
+    // else if((N % 2 === 0) && (N > 20)){console.log('Not Weird')}
+    // else if((N % 2 !== 0)){console.log('Weird')}
+    // else {console.log(N)}
+
+        // if(N % 2 !== 0){console.log('Weird')}
+        // else {
+        //     switch (N){
+        //         case (2 <= N <= 5):
+        //         console.log('Not Weird');
+        //         break;
+        //         case (6 <= N <= 20):
+        //         console.log('Weird');
+        //         break;
+        //         case (N > 20):
+        //         console.log('Not Weird');
+        //         break;
+        //         default:
+        //         console.log(N);
+        //         break;
+        //     }
+        // }
+}
+
+function main() {
+    const N = parseInt(readLine(), 10);
+    // call the function here
+    conditionalWeirdness(N)
+}
