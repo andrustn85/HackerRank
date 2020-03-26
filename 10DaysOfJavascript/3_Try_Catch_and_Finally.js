@@ -39,3 +39,54 @@
 // Explanation 1
 //
 //  is not a string type, so it can't be reversed using string functions. When we try to reverse it anyway, it throws an exception. We then catch the exception and print its , which is s.split is not a function. Next, we finally print  which, because it wasn't able to be reversed, is Number(1234).
+
+// SOLUTION
+
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Complete the reverseString function
+ * Use console.log() to print to stdout.
+ */
+function reverseString(s) {
+
+  try{
+    const split = s.split('')
+    const reverse = split.reverse()
+    const join = reverse.join('')
+    console.log(join)
+  }
+  catch(error){
+    console.log(error.message);
+    console.log(s);
+  }
+}
+
+
+function main() {
+    const s = eval(readLine());
+
+    reverseString(s);
+}
