@@ -51,35 +51,11 @@ function readLine() {
 // Complete the rotLeft function below.
 function rotLeft(a, d) {
 
-const idx = a.indexOf(d)
-const beforeArr = []
-const final = []
+    const slice = a.slice(d)
+    const concat = slice.concat(a.slice(0, d))
 
-const slice = a.slice(d)
+return concat
 
-const map = a.map(element => {
-  const indexElmt = a.indexOf(element)
-  if(indexElmt <= (d-1)){
-      beforeArr.push(element)
-  }
-})
-  const concat = final.concat(slice, beforeArr)
-  return concat
-
-// let beforeDarray = []
-// let afterDarray =[]
-// let finalArray =[]
-
-// for(let num = 1; num <= d; num++ ){
-//     beforeDarray.push(num)
-// }
-
-// for(let num = (d+1); num <= a.length; num++){
-//   afterDarray.push(num)
-// }
-
-// const concat = finalArray.concat(afterDarray, beforeDarray)
-//   return concat
 }
 
 function main() {
