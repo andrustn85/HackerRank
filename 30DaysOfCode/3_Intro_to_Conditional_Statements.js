@@ -67,48 +67,16 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function conditionalWeirdness(N) {
+function weirdNotWeird(N){
 
-  if(N === 1 || (N === 3) || (N === 5) || (N % 2 !== 0)){ console.log('Weird')}
-  else if(N > 20){ console.log('Not Weird') }
-  else if((N === 2) || (N === 4) ){ console.log('Not Weird'); }
-  else if(6 <= N <= 20){ console.log('Weird'); }
+    if(N === 1 || (N === 3) || (N === 5) || (N % 2 !== 0)){ console.log('Weird')}
+    else if(N > 20){ console.log('Not Weird') }
+    else if((N === 2) || (N === 4) ){ console.log('Not Weird'); }
+    else if(6 <= N <= 20){ console.log('Weird'); }
 
-
-    // if(N % 2 !== 0){console.log('Weird')}
-    // else if((N % 2 === 0) && (N > 20)){console.log('Not Weird')}
-    // else if((N % 2 === 0) && (2 <= N <= 5)){console.log('Not Weird')}
-    // else if((N % 2 === 0) && (6 <= N <= 20)){console.log('Weird')}
-    // else {console.log(N)}
-
-
-    // if(((N % 2 === 0) || (N % 2 !== 0)) && (2 <= N <= 5)){console.log('Not Weird')}
-    // else if((N % 2 === 0) && (6 <= N <= 20)){console.log('Weird')}
-    // else if((N % 2 === 0) && (N > 20)){console.log('Not Weird')}
-    // else if((N % 2 !== 0)){console.log('Weird')}
-    // else {console.log(N)}
-
-        // if(N % 2 !== 0){console.log('Weird')}
-        // else {
-        //     switch (N){
-        //         case (2 <= N <= 5):
-        //         console.log('Not Weird');
-        //         break;
-        //         case (6 <= N <= 20):
-        //         console.log('Weird');
-        //         break;
-        //         case (N > 20):
-        //         console.log('Not Weird');
-        //         break;
-        //         default:
-        //         console.log(N);
-        //         break;
-        //     }
-        // }
 }
 
 function main() {
     const N = parseInt(readLine(), 10);
-    // call the function here
-    conditionalWeirdness(N)
+    weirdNotWeird(N)
 }
