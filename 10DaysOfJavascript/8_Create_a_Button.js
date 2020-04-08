@@ -60,3 +60,18 @@ const btn = document.getElementById("btn");
 btn.addEventListener("click", function() {
   btn.innerHTML++;
 });
+
+// In HTML file :
+
+// <!DOCTYPE html>
+// <html>
+//     <head>
+//         <meta charset="utf-8">
+//         <link rel="stylesheet" href="css/button.css" type="text/css">
+//         <title>Button</title>
+//     </head>
+//     <body>
+//         <button id="btn">0</button>
+//         <script src="js/button.js" type="text/javascript"></script>
+//     </body>
+// </html>
