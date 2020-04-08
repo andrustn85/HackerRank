@@ -52,3 +52,11 @@
 //     height: 48px;
 //     font-size: 24px;
 // }
+
+// In JS file :
+
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", function() {
+  btn.innerHTML++;
+});
