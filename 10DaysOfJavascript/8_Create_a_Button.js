@@ -43,3 +43,12 @@
 // After  more clicks, it looks like this:
 //
 // nine clicks
+
+// SOLUTION
+
+// In CSS file :
+// #btn {
+//     width: 96px;
+//     height: 48px;
+//     font-size: 24px;
+// }
