@@ -57,3 +57,56 @@
 //
 // When  and , the maximum of any  in set  is  (see table above), so we return .
 // When  and , the maximum of any  in set  is  (see table above), so we return .
+
+// SOLUTION
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", inputStdin => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", _ => {
+  inputString = inputString
+    .trim()
+    .split("\n")
+    .map(string => {
+      return string.trim();
+    });
+
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+const getMaxLessThanK = (n, k) => {
+  let maxAandB = 0;
+  for (let b = n; b > 0; b--) {
+    for (let a = b - 1; a > 0; a--) {
+      if ((a & b) < k && (a & b) > maxAandB) {
+        maxAandB = a & b;
+      }
+    }
+  }
+  return maxAandB;
+};
+
+function main() {
+  const q = +readLine();
+
+  for (let i = 0; i < q; i++) {
+    const [n, k] = readLine()
+      .split(" ")
+      .map(Number);
+
+    console.log(getMaxLessThanK(n, k));
+  }
+}
