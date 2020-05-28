@@ -55,9 +55,7 @@ After clicking btn5  more time (for a total of  clicks), they look like this:cli
 
 // SOLUTION
 
-/*
-In CSS file :
-
+/*   In CSS file :
 #btns {
     width: 75%;
 }
@@ -70,7 +68,6 @@ In CSS file :
 */
 
 // In JS file :
-
 btn5.onclick = function() {
   let temp = btn1.innerHTML;
   btn1.innerHTML = btn4.innerHTML;
@@ -83,9 +80,7 @@ btn5.onclick = function() {
   btn2.innerHTML = temp;
 };
 
-/*
-In HTML file :
-
+/*   In HTML file :
 <!DOCTYPE html>
 <html>
     <head>
