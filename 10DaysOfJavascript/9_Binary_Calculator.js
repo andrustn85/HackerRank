@@ -104,3 +104,38 @@ body {
   color: red;
 }
 */
+
+// In JS file :
+const btns = document.getElementsByTagName("button");
+for (let btn of btns) {
+  button.onclick = click;
+}
+
+function click(e) {
+  const btn = e.target || e.srcElement;
+  const action = document.getElementById(btn.id).innerHTML;
+  const res = document.getElementById("res");
+
+  switch (action) {
+    case "0":
+    case "1":
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+      res.innerHTML += action;
+      break;
+    case "C":
+      res.innerHTML = "";
+      break;
+    case "=":
+      const expr = res.innerHTML;
+      const nums = /(\d+)/g;
+      expr = expr.replace(nums, function(match) {
+        return parseInt(match, 2);
+      });
+
+      res.innerHTML = eval(expr).toString(2);
+      break;
+  }
+}
