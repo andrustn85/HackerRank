@@ -39,6 +39,7 @@ Sample Output 3
 false
 Explanation 3
 This string starts with the vowel a but ends in the vowel o.
+
 */
 
 // SOLUTION
