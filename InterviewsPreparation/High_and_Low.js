@@ -42,3 +42,15 @@ describe('high_and_low', function() {
 });
 
 */
+
+// SOLUTION
+
+const highAndLow = numbers => {
+  const split = numbers.split(" ");
+  const map = split.map(x => Number(x));
+  const max = String(Math.max(...map));
+  const min = String(Math.min(...map));
+  const concat = max.concat(" ", `${min}`);
+
+  return concat;
+};
