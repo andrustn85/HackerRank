@@ -21,6 +21,7 @@ Guaranteed Constraints:
 All numbers are valid Int32, no need to validate them.
 It will never be null or undefined.
 There will always be at least one number in the input string.
+
 Returns: String
 Two numbers separated by a single space, and highest number must be first.
 
