@@ -46,3 +46,81 @@ describe('Markdown Headers', function() {
 });
 
 */
+
+// SOLUTION
+
+const markdownParser = markdown => {
+  const splitBySpace = markdown.split(" ");
+
+  const firstString = [];
+  const restOfString = [];
+
+  const separateTheFirstString = firstString.push(splitBySpace.shift());
+  const stringifyFirstString = firstString.toString();
+  const separateChar = stringifyFirstString.split("");
+
+  if (separateChar < 1) {
+    splitBySpace.shift(firstString.push(splitBySpace[1]));
+  }
+
+  const joinFirstString = firstString.join("");
+  const countJoinFirstString = joinFirstString.length;
+
+  const pushTheRest = restOfString.push(splitBySpace);
+  const flattenRestOfString = restOfString.reduce(
+    (acc, val) => acc.concat(val),
+    []
+  );
+  const joinTheFlattenRestOfString = flattenRestOfString.join(" ");
+
+  const restOfStringEdge = restOfString[0].toString().split(",");
+  const removeFirstItemFromRest = restOfStringEdge.splice(1, Infinity);
+
+  const withoutSpace = [];
+  for (let item = 0; item < removeFirstItemFromRest.length; item++) {
+    if (removeFirstItemFromRest[item].length > 1) {
+      withoutSpace.push(removeFirstItemFromRest[item]);
+    }
+  }
+
+  const restOfStringEdgeJoin = removeFirstItemFromRest.join(" ");
+  const withoutSpaceJoin = withoutSpace.join(" ");
+
+  if (countJoinFirstString === 4) {
+    return `<h4>${restOfStringEdgeJoin}</h4>`;
+  }
+  if (separateChar.length === 1 && joinTheFlattenRestOfString != "Invalid") {
+    return `<h1>${joinTheFlattenRestOfString}</h1>`;
+  }
+  if (separateChar.length === 2 && joinTheFlattenRestOfString != "Invalid") {
+    return `<h2>${joinTheFlattenRestOfString}</h2>`;
+  }
+  if (countJoinFirstString === 2) {
+    return `<h2>${withoutSpaceJoin}</h2>`;
+  }
+  if (separateChar.length === 3 && joinTheFlattenRestOfString != "Invalid") {
+    return `<h3>${joinTheFlattenRestOfString}</h3>`;
+  }
+  if (separateChar.length === 4 && joinTheFlattenRestOfString != "Invalid") {
+    return `<h4>${joinTheFlattenRestOfString}</h4>`;
+  }
+  if (separateChar.length === 5 && joinTheFlattenRestOfString != "Invalid") {
+    return `<h5>${joinTheFlattenRestOfString}</h5>`;
+  }
+  if (
+    separateChar.length === 6 &&
+    separateChar.includes("#") &&
+    joinTheFlattenRestOfString != "Invalid"
+  ) {
+    return `<h6>${joinTheFlattenRestOfString}</h6>`;
+  }
+  if (
+    separateChar.length > 6 ||
+    (markdown.includes("") ? true : false) ||
+    (!separateChar.includes("#") ? true : false)
+  ) {
+    return markdown;
+  } else {
+    return markdown;
+  }
+};
