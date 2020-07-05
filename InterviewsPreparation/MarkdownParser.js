@@ -45,6 +45,24 @@ describe('Markdown Headers', function() {
   });
 });
 
+basic_valid_cases:
+# Big
+## Not As Big
+### Smaller Still
+###### So Tiny For a Header
+
+basic_invalid_cases:
+#NoSpace
+Behind # The Scenes
+Wizard# Behind The Curtain
+
+edge_cases:
+### ### Double Triple Header
+####### Snow White and the Seven Hashtags
+  #### Space Jam
+  ##          Lost In Space
+# Far      Out, Dude
+
 */
 
 // SOLUTION
