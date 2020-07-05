@@ -73,7 +73,7 @@ const markdownParser = markdown => {
   const firstString = [];
   const restOfString = [];
 
-  //  Basic cases: First part of the string handler
+  //  Basic cases: Handling the first part of the string
   const separateTheFirstString = firstString.push(splitBySpace.shift());
   const stringifyFirstString = firstString.toString();
   const separateChar = stringifyFirstString.split("");
@@ -85,7 +85,7 @@ const markdownParser = markdown => {
   const joinFirstString = firstString.join("");
   const countJoinFirstString = joinFirstString.length;
 
-  //  Basic cases: Second part of the string handler
+  //  Basic cases: Handling the second part of the string
   const pushTheRest = restOfString.push(splitBySpace);
   const flattenRestOfString = restOfString.reduce(
     (acc, val) => acc.concat(val),
@@ -107,7 +107,7 @@ const markdownParser = markdown => {
   const joinRestOfStringEdgeCase = removeFirstItemFromRest.join(" ");
   const joinWithoutSpace = withoutSpace.join(" ");
 
-  //   Logic applied depending on cases
+  //   Logic applied and result depending on cases
   if (separateChar.length === 1) {
     return `<h1>${joinTheFlattenRestOfString}</h1>`;
   }
