@@ -73,6 +73,7 @@ const markdownParser = markdown => {
   const firstString = [];
   const restOfString = [];
 
+  //  Basic cases: First part of the string handler
   const separateTheFirstString = firstString.push(splitBySpace.shift());
   const stringifyFirstString = firstString.toString();
   const separateChar = stringifyFirstString.split("");
@@ -84,6 +85,7 @@ const markdownParser = markdown => {
   const joinFirstString = firstString.join("");
   const countJoinFirstString = joinFirstString.length;
 
+  //  Basic cases: Second part of the string handler
   const pushTheRest = restOfString.push(splitBySpace);
   const flattenRestOfString = restOfString.reduce(
     (acc, val) => acc.concat(val),
@@ -91,8 +93,9 @@ const markdownParser = markdown => {
   );
   const joinTheFlattenRestOfString = flattenRestOfString.join(" ");
 
-  const restOfStringEdge = restOfString[0].toString().split(",");
-  const removeFirstItemFromRest = restOfStringEdge.splice(1, Infinity);
+  //   Edge cases logic
+  const restOfStringEdgeCase = restOfString[0].toString().split(",");
+  const removeFirstItemFromRest = restOfStringEdgeCase.splice(1, Infinity);
 
   const withoutSpace = [];
   for (let item = 0; item < removeFirstItemFromRest.length; item++) {
@@ -101,35 +104,32 @@ const markdownParser = markdown => {
     }
   }
 
-  const restOfStringEdgeJoin = removeFirstItemFromRest.join(" ");
-  const withoutSpaceJoin = withoutSpace.join(" ");
+  const joinRestOfStringEdgeCase = removeFirstItemFromRest.join(" ");
+  const joinWithoutSpace = withoutSpace.join(" ");
 
-  if (countJoinFirstString === 4) {
-    return `<h4>${restOfStringEdgeJoin}</h4>`;
-  }
-  if (separateChar.length === 1 && joinTheFlattenRestOfString != "Invalid") {
+  //   Logic applied depending on cases
+  if (separateChar.length === 1) {
     return `<h1>${joinTheFlattenRestOfString}</h1>`;
   }
-  if (separateChar.length === 2 && joinTheFlattenRestOfString != "Invalid") {
+  if (separateChar.length === 2) {
     return `<h2>${joinTheFlattenRestOfString}</h2>`;
   }
   if (countJoinFirstString === 2) {
-    return `<h2>${withoutSpaceJoin}</h2>`;
+    return `<h2>${joinWithoutSpace}</h2>`;
   }
-  if (separateChar.length === 3 && joinTheFlattenRestOfString != "Invalid") {
+  if (separateChar.length === 3) {
     return `<h3>${joinTheFlattenRestOfString}</h3>`;
   }
-  if (separateChar.length === 4 && joinTheFlattenRestOfString != "Invalid") {
+  if (separateChar.length === 4) {
     return `<h4>${joinTheFlattenRestOfString}</h4>`;
   }
-  if (separateChar.length === 5 && joinTheFlattenRestOfString != "Invalid") {
+  if (countJoinFirstString === 4) {
+    return `<h4>${joinRestOfStringEdgeCase}</h4>`;
+  }
+  if (separateChar.length === 5) {
     return `<h5>${joinTheFlattenRestOfString}</h5>`;
   }
-  if (
-    separateChar.length === 6 &&
-    separateChar.includes("#") &&
-    joinTheFlattenRestOfString != "Invalid"
-  ) {
+  if (separateChar.length === 6 && separateChar.includes("#")) {
     return `<h6>${joinTheFlattenRestOfString}</h6>`;
   }
   if (
@@ -137,8 +137,6 @@ const markdownParser = markdown => {
     (markdown.includes("") ? true : false) ||
     (!separateChar.includes("#") ? true : false)
   ) {
-    return markdown;
-  } else {
     return markdown;
   }
 };
